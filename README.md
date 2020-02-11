@@ -177,6 +177,7 @@ toastr.warning('The title', 'The message')
 toastr.error('The message')
 toastr.removeByType('error') // Remove all toastrs with the type error.
 toastr.remove('123') // Removes toastr with id '123'
+toastr.updateTimeOut({id:'toastrId', timeOut: 1000}) // Will update toastr timeout
 ```
 
 ##### Toastr methods light
