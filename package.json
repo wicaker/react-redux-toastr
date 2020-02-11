@@ -70,7 +70,7 @@
     "toastr profile"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/@wicaker"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
