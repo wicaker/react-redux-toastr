@@ -19,6 +19,8 @@ actions.removeByType = (type) => emitter.emit('removeByType/toastr', type);
 
 actions.remove = (id) => emitter.emit('remove/toastr', id);
 
+actions.updateTimeOut = (payload) => emitter.emit('updateTimeOut/toastr', payload);
+
 actions.confirm = (...args) => {
   emitter.emit('toastr/confirm', {
     message: args[0],

@@ -6,7 +6,8 @@ import {
   CLEAN_TOASTR,
   SHOW_CONFIRM,
   HIDE_CONFIRM,
-  REMOVE_BY_TYPE
+  REMOVE_BY_TYPE,
+  UPDATE_TIME_OUT
 } from './constants';
 
 // TOTO: find a better way of handling this issue
@@ -59,6 +60,20 @@ export default createReducer(initialState, {
     let newState = {
       ...state,
       toastrs: state.toastrs.filter(toastr => toastr.id !== id)
+    };
+
+    toastrsCache = newState.toastrs;
+    return newState;
+  },
+  [UPDATE_TIME_OUT]: (state, payload) => {
+    let newState = {
+      ...state,
+      toastrs: state.toastrs.filter(toastr => {
+        if (toastr.id === payload.id) {
+          toastr.options.timeOut = payload.timeOut;
+        }
+        return toastr;
+      })
     };
 
     toastrsCache = newState.toastrs;

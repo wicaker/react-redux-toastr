@@ -58,12 +58,13 @@ export class ReduxToastr extends React.Component {
   }
 
   componentDidMount() {
-    const {add, showConfirm, clean, removeByType, remove} = this.props;
+    const {add, showConfirm, clean, removeByType, remove, updateTimeOut} = this.props;
     EE.on('toastr/confirm', showConfirm);
     EE.on('add/toastr', add);
     EE.on('clean/toastr', clean);
     EE.on('removeByType/toastr', removeByType);
     EE.on('remove/toastr', remove);
+    EE.on('updateTimeOut/toastr', updateTimeOut);
   }
 
   componentWillUnmount() {
@@ -72,6 +73,7 @@ export class ReduxToastr extends React.Component {
     EE.removeListener('clean/toastr');
     EE.removeListener('removeByType/toastr');
     EE.removeListener('remove/toastr');
+    EE.removeListener('updateTimeOut/toastr');
     this.toastrFired = {};
   }
 
@@ -157,7 +159,7 @@ export class ReduxToastr extends React.Component {
 
 export default connect(
   (state, ownProps) => ({
-    toastr: ownProps.getState ? ownProps.getState(state) : state.toastr,
+    toastr: ownProps.getState ? ownProps.getState(state) : state.toastr
   }),
   actions
 )(ReduxToastr);

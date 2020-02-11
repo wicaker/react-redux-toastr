@@ -93,6 +93,11 @@ export default class ToastrBox extends React.Component {
     }, 50);
   }
 
+  componentDidUpdate() {
+    const timeOut = this._getItemTimeOut();
+    this._setIntervalId(setTimeout(this._removeToastr, timeOut));
+  }
+
   get isToastrClickable() {
     const {onToastrClick, closeOnToastrClick} = this.props.item.options;
     const hasOnToastrClick = !!onToastrClick;
@@ -110,7 +115,7 @@ export default class ToastrBox extends React.Component {
     if (e.key === ' ' || e.key === 'Enter') {
       this.handleClickCloseButton(e);
     }
-  }
+  };
 
   handleClickToastr = () => {
     let {onToastrClick, closeOnToastrClick} = this.props.item.options;

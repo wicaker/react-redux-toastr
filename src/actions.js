@@ -4,7 +4,8 @@ import {
   CLEAN_TOASTR,
   SHOW_CONFIRM,
   HIDE_CONFIRM,
-  REMOVE_BY_TYPE
+  REMOVE_BY_TYPE,
+  UPDATE_TIME_OUT
 } from './constants';
 
 import {preventDuplication} from './utils';
@@ -42,5 +43,10 @@ export const hideConfirm = () => ({type: HIDE_CONFIRM});
 
 export const removeByType = (payload) => ({
   type: REMOVE_BY_TYPE,
+  payload
+});
+
+export const updateTimeOut = (payload) => ({
+  type: UPDATE_TIME_OUT,
   payload
 });
